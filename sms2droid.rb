@@ -3,8 +3,9 @@
 require 'sqlite3'
 require 'cgi'
 
-
-#message class
+#
+#model class
+#
 class Message
 	attr_accessor :number, :text, :date, :flags, :group_id, :association_id
 	
@@ -24,36 +25,61 @@ class Message
 	end
 end
 
+#
+#write the messages to the xml file
+#
+def write_to_file(msgs)
+	File.open('messages.xml', 'w') do |file| 
+		
+		#add the header to the xml file
+		file.puts "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>"
+		file.puts "<smses count=\"#{msgs.length}\">"
+	
+		#iterate over the messages and write the content   
+		msgs.each do |msg|
+			file.puts msg.to_xml
+		end
+		
+		#add the footer
+		file.puts "</smses>"
+	end  
+end
 
-#DO THE PROCESSING!
-
-#will hold the extracted messages
-messages = Array.new
-
-#read from the DB
-db = SQLite3::Database.new('/sms.db')
-db.results_as_hash = true #otherwise you cannot referr to the columns via the column name!
-db.execute( "select * from message" ) do |row|
-	msg = Message.new(row)
-	#puts msg.to_xml
-	messages.push(msg)
+#
+#extracts the values from the DB
+#
+def extract_from_db(dbfilepath)	
+	collection = Array.new
+	
+	db = SQLite3::Database.new("#{dbfilepath}")
+	db.results_as_hash = true #otherwise you cannot referr to the columns via the column name!
+	
+	db.execute( "select * from message" ) do |row|
+		msg = Message.new(row)
+		#puts msg.to_xml
+		collection.push(msg)
+	end
+	
+	return collection
 end
 
 
-# Create a new file and write to it  
-File.open('messages.xml', 'w') do |file| 
-	#add the header to the xml file
-	file.puts "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>"
-	file.puts "<smses count=\"#{messages.length}\">"
 
-  #iterate over the messages and write the content   
-  messages.each do |mess|
-  	file.puts mess.to_xml
-  end
-  
-  #add the footer
-  file.puts "</smses>"
-end  
 
-#puts messages.length
-puts "Processed #{messages.length} messages!"
+
+#
+#DO THE PROCESSING!
+#
+puts("\n\nsms2droid")
+puts("Please provide sms.db path:")
+file_to_convert = gets.chomp
+
+if File.exists?(file_to_convert)
+	messages = extract_from_db(file_to_convert)
+	write_to_file(messages)	
+	puts "\n[DONE] #{messages.length} message(s) where extracted."
+else
+  puts "\n[FAILED] The file #{file_to_convert} cannot be found! Please verify the path is correct and try again."
+end
+
+puts("\nThank you for using 'sms2droid' by cgiacomi (http://github.com/cgiacomi/sms2droid)\n")
