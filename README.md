@@ -12,19 +12,33 @@ sms2droid is release under the Apache License, Version 2.0
 How To
 -----
 
-First of all you need to sync your iPhone to iTunes.
-
-While this is happening you will need to download a couple of  application.
+Software needed:
 
 On your Mac
-SMSExtractor (open source: http://...)
+iPhone / iPod Touch Backup Extractor (donationware: http://supercrazyawesome.com/)
+
+On your Windows
+coming...
 
 On your Android (Android Market)
 SMS Backup and Restore (by Ritesh Sahu) from the Android Market
 
-Once your iPhone is done, you need to launch.... 
 
-(more coming...)
+Before using sms2droid:
+
+Sync your iPhone to iTunes.
+
+Once your iPhone is done, you need to launch the 'iPhone / iPod Touch Backup Extractor'
+click on the 'Read Backups' button and select which backup you would like to read from.
+
+From the list displayed select 'iOS Files' and click on 'Extract'
+Select the destination path and let the app do it's work.
+
+Go to the destination path and open the dir 'Library/SMS' and there you should see a file called `sms.db`.
+
+Copy the file somewhere simple to find.
+
+You are now ready to user sms2droid
 
 
 Using
@@ -32,18 +46,26 @@ Using
 
 To use the script just download it and from the command line:
 
-`ruby sms2droid.rb`
+    ruby sms2droid.rb
 
-and then just follow the instructions. 
+and then just follow the instructions to convert the sms.db.
+
+
+At this point you should have a file called sms.xml
+
+
+more coming...
+
 
 That's it!
 
+Hope you find the script useful.
 
 
 Comments
 -----
 
-Any feedback is welcome.
+Feel free to leave any comments or suggestions :)
 
 
 
