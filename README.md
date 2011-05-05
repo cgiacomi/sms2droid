@@ -6,7 +6,7 @@ This is a simple Ruby script to convert the SMS's in an iPhone into a format tha
 The script extracts the data from the sms.db file, which is the iPhone's sms backup file and creates an xml file which can be used by the 'SMS Backup & Restore' [android app](http://android.riteshsahu.com/apps/sms-backup-restore).
 
 
-sms2droid is release under the Apache License, Version 2.0
+sms2droid is released under the Apache License, Version 2.0
 
 
 How To
