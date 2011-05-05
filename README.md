@@ -40,6 +40,8 @@ or
 
 - Sync your iPhone to iTunes.
 
+- Ensure you back up your data on your Android as well. (Very Important!)
+
 - Once your iPhone is done, you need to launch the 'iPhone / iPod Touch Backup Extractor'
 
 - click on the 'Read Backups' button and select which backup you would like to read from.
@@ -68,9 +70,13 @@ and then just follow the instructions to convert the `sms.db`.
 
 At this point you should have a file called `sms.xml`
 
+Rename the `sms.xml` file to look like this `sms-YYYYMMDDHHmmSS.xml` for example `sms-20110505235900.xml`
 
-more coming...
+Connect your android to your Mac or Windows, ensure that you can use the phone as an external disk and copy the xml file to the `SMSBackupRestore` directory. You can also use DropBox if you have it installed on your phone, and then using one of the above mentioned File managers copy the file to the destination directory.
 
+At this point on the phone start the SMS Backup & Restore app and click on the `Restore` button, select the file you just uploaded and depending on how many messages you are importing you might have to wait a little. Ensure that your phone does not go to sleep while the data is being imported.
+
+Exit the app and start your `Messages` app and you should see all your imported messages.
 
 That's it!
 
