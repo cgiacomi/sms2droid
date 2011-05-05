@@ -53,7 +53,7 @@ or
 - Copy the file somewhere simple to find.
 
 
-You are now ready to user sms2droid!
+You are now ready to use sms2droid!
 
 
 Using
