@@ -12,7 +12,7 @@ sms2droid is release under the Apache License, Version 2.0
 How To
 ------
 
-Software needed:
+### Software needed:
 
 #### On your Mac
 
@@ -34,19 +34,24 @@ or
 
 
 
-#### Before using sms2droid:
 
-Sync your iPhone to iTunes.
 
-Once your iPhone is done, you need to launch the 'iPhone / iPod Touch Backup Extractor'
-click on the 'Read Backups' button and select which backup you would like to read from.
+### Before using sms2droid
 
-From the list displayed select 'iOS Files' and click on 'Extract'
-Select the destination path and let the app do it's work.
+- Sync your iPhone to iTunes.
 
-Go to the destination path and open the dir 'Library/SMS' and there you should see a file called `sms.db`.
+- Once your iPhone is done, you need to launch the 'iPhone / iPod Touch Backup Extractor'
 
-Copy the file somewhere simple to find.
+- click on the 'Read Backups' button and select which backup you would like to read from.
+
+- From the list displayed select 'iOS Files' and click on 'Extract'
+
+- Select the destination path and let the app do it's work.
+
+- Go to the destination path and open the dir 'Library/SMS' and there you should see a file called `sms.db`.
+
+- Copy the file somewhere simple to find.
+
 
 You are now ready to user sms2droid!
 
