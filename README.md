@@ -23,6 +23,10 @@ coming...
 On your Android (Android Market)
 SMS Backup and Restore (by Ritesh Sahu) from the Android Market
 
+File Expert (http://www.appbrain.com/app/file-expert/xcxin.filexpert)
+or
+ASTRO File Manager (http://www.appbrain.com/app/com.metago.astro)
+
 
 Before using sms2droid:
 
@@ -48,10 +52,10 @@ To use the script just download it and from the command line:
 
     ruby sms2droid.rb
 
-and then just follow the instructions to convert the sms.db.
+and then just follow the instructions to convert the `sms.db`.
 
 
-At this point you should have a file called sms.xml
+At this point you should have a file called `sms.xml`
 
 
 more coming...
