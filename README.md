@@ -15,16 +15,21 @@ How To
 Software needed:
 
 On your Mac
+
 iPhone / iPod Touch Backup Extractor (donationware: http://supercrazyawesome.com/)
 
 On your Windows
+
 coming...
 
 On your Android (Android Market)
+
 SMS Backup and Restore (by Ritesh Sahu) from the Android Market
 
 File Expert (http://www.appbrain.com/app/file-expert/xcxin.filexpert)
+
 or
+
 ASTRO File Manager (http://www.appbrain.com/app/com.metago.astro)
 
 
