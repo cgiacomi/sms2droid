@@ -10,30 +10,31 @@ sms2droid is release under the Apache License, Version 2.0
 
 
 How To
------
+------
 
 Software needed:
 
-On your Mac
+#### On your Mac
 
-iPhone / iPod Touch Backup Extractor (donationware: http://supercrazyawesome.com/)
+- iPhone / iPod Touch Backup Extractor (donationware: http://supercrazyawesome.com/)
 
-On your Windows
+#### On your Windows
 
-coming...
+- coming...
 
-On your Android (Android Market)
+#### On your Android (Android Market)
 
-SMS Backup and Restore (by Ritesh Sahu) from the Android Market
+- SMS Backup and Restore (by Ritesh Sahu) from the Android Market
 
-File Expert (http://www.appbrain.com/app/file-expert/xcxin.filexpert)
+- File Expert (http://www.appbrain.com/app/file-expert/xcxin.filexpert)
 
 or
 
-ASTRO File Manager (http://www.appbrain.com/app/com.metago.astro)
+- ASTRO File Manager (http://www.appbrain.com/app/com.metago.astro)
 
 
-Before using sms2droid:
+
+#### Before using sms2droid:
 
 Sync your iPhone to iTunes.
 
@@ -47,7 +48,7 @@ Go to the destination path and open the dir 'Library/SMS' and there you should s
 
 Copy the file somewhere simple to find.
 
-You are now ready to user sms2droid
+You are now ready to user sms2droid!
 
 
 Using
