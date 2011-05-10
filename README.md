@@ -92,9 +92,11 @@ Feel free to leave any comments or suggestions :)
 References
 ----------
 
-http://damon.durandfamily.org/archives/000487.html
-
-http://webcache.googleusercontent.com/search?q=cache:i-sFoBhYToEJ:yadloo.blogspot.com/2008/11/iphone-fixing-unread-sms-count-gentle.html+iphone+sms.db+flags+0&cd=2&hl=da&ct=clnk&gl=dk&source=www.google.dk
+[Android Stuff](http://android.riteshsahu.com/tips/import-sms-iphone-android)
 
 
+[iPhone Database Details](http://damon.durandfamily.org/archives/000487.html)
+
+
+[iPhone : Fixing the unread SMS count - the gentle way])http://webcache.googleusercontent.com/search?q=cache:i-sFoBhYToEJ:yadloo.blogspot.com/2008/11/iphone-fixing-unread-sms-count-gentle.html+iphone+sms.db+flags+0&cd=2&hl=da&ct=clnk&gl=dk&source=www.google.dk)
 
