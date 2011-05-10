@@ -98,5 +98,5 @@ References
 [iPhone Database Details](http://damon.durandfamily.org/archives/000487.html)
 
 
-[iPhone : Fixing the unread SMS count - the gentle way])http://webcache.googleusercontent.com/search?q=cache:i-sFoBhYToEJ:yadloo.blogspot.com/2008/11/iphone-fixing-unread-sms-count-gentle.html+iphone+sms.db+flags+0&cd=2&hl=da&ct=clnk&gl=dk&source=www.google.dk)
+[iPhone : Fixing the unread SMS count - the gentle way](http://webcache.googleusercontent.com/search?q=cache:i-sFoBhYToEJ:yadloo.blogspot.com/2008/11/iphone-fixing-unread-sms-count-gentle.html+iphone+sms.db+flags+0&cd=2&hl=da&ct=clnk&gl=dk&source=www.google.dk)
 
