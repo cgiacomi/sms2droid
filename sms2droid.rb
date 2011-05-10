@@ -66,7 +66,7 @@ def extract_from_db(dbfilepath)
 
   db = SQLite3::Database.new("#{dbfilepath}")
   db.results_as_hash = true #otherwise you cannot referr to the columns via the column name!
-  db.execute( "select text from message where address = '+35699456973' order by date desc" ) do |row|
+  db.execute( "select * from message" ) do |row|
     num = row['address']
     txt = row['text']
     dt = row['date']
@@ -104,13 +104,13 @@ puts("path to sms.db:")
 file_to_convert = gets.chomp
 
 if File.exists?(file_to_convert)
-  #begin
+  begin
     messages = extract_from_db(file_to_convert)
     write_to_file(messages)
     done(messages.length)
-  #rescue Exception => e
-  #  exception e
-  #end    
+  rescue Exception => e
+    exception e
+  end    
 else
   file_not_found(file_to_convert)
 end
