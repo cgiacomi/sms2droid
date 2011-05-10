@@ -34,7 +34,7 @@ class Message
 
   #how each message should be represented in xml
   def to_xml
-    "\t<sms protocol=\"0\" address=\"#{number}\" date=\"#{date}000\" type=\"#{flags-1}\" subject=\"null\" body=\"#{CGI::escapeHTML("#{text}")}\" toa=\"0\" sc_toa=\"0\" service_center=\"null\" read=\"1\" status=\"-1\" locked=\"0\" contact_name=\"null\" />"
+    "\t<sms protocol=\"0\" address=\"#{number}\" date=\"#{date}000\" type=\"#{flags}\" subject=\"null\" body=\"#{CGI::escapeHTML("#{text}")}\" toa=\"0\" sc_toa=\"0\" service_center=\"null\" read=\"1\" status=\"-1\" locked=\"0\" contact_name=\"null\" />"
   end
 end
 
@@ -66,7 +66,7 @@ def extract_from_db(dbfilepath)
 
   db = SQLite3::Database.new("#{dbfilepath}")
   db.results_as_hash = true #otherwise you cannot referr to the columns via the column name!
-  db.execute( "select * from message" ) do |row|	  
+  db.execute( "select text from message where address = '+35699456973' order by date desc" ) do |row|
     num = row['address']
     txt = row['text']
     dt = row['date']
@@ -104,13 +104,13 @@ puts("path to sms.db:")
 file_to_convert = gets.chomp
 
 if File.exists?(file_to_convert)
-  begin
+  #begin
     messages = extract_from_db(file_to_convert)
-    write_to_file(messages)	
+    write_to_file(messages)
     done(messages.length)
-  rescue Exception => e
-    exception
-  end    
+  #rescue Exception => e
+  #  exception e
+  #end    
 else
   file_not_found(file_to_convert)
 end
