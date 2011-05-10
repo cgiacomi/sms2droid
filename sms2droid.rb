@@ -34,7 +34,7 @@ class Message
 
   #how each message should be represented in xml
   def to_xml
-    "\t<sms protocol=\"0\" address=\"#{number}\" date=\"#{date}000\" type=\"#{flags}\" subject=\"null\" body=\"#{CGI::escapeHTML("#{text}")}\" toa=\"0\" sc_toa=\"0\" service_center=\"null\" read=\"1\" status=\"-1\" locked=\"0\" contact_name=\"null\" />"
+    "\t<sms protocol=\"0\" address=\"#{number}\" date=\"#{date}000\" type=\"#{flags-1}\" subject=\"null\" body=\"#{CGI::escapeHTML("#{text}")}\" toa=\"0\" sc_toa=\"0\" service_center=\"null\" read=\"1\" status=\"-1\" locked=\"0\" contact_name=\"null\" />"
   end
 end
 
