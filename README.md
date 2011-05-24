@@ -1,7 +1,7 @@
 sms2droid
 =========
 
-This is a simple Ruby script to convert iPhone sms database to Android. It converts the sms database into a format that can be used in a Android phone.
+sms2droid converts iPhone SMS to Android. it's a simple Ruby script to convert the iPhone sms database to Android. It does so by converting the sms database into a format that can be used by an Android phone.
 
 The script extracts the data from the sms.db file, which is the iPhone's sms backup file and creates an xml file which can be used by the 'SMS Backup & Restore' [android app](http://android.riteshsahu.com/apps/sms-backup-restore).
 
