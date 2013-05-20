@@ -8,6 +8,10 @@ The script extracts the data from the iphone sms database file, which is the iPh
 
 sms2droid is released under the Apache License, Version 2.0
 
+Very Important
+------
+
+#### It's only for iOS 6!
 
 How To
 ------
@@ -49,7 +53,7 @@ To use the script just download it and from the command line:
 
     ruby sms2droid.rb
 
-and then just follow the instructions to convert the `iphone sms database file`.
+and then just follow the instructions to convert the iphone sms database file.
 
 
 At this point you should have a file called `sms.xml`
