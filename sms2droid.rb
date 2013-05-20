@@ -16,7 +16,6 @@
 #  limitations under the License.
 #
 
-#require 'rubygems'
 require 'sqlite3'
 require 'cgi'
 

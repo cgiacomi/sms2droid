@@ -11,7 +11,7 @@ sms2droid is released under the Apache License, Version 2.0
 Very Important
 ------
 
-#### It's only for iOS 6!
+#### It's only for iOS 6!!
 
 How To
 ------
