@@ -34,7 +34,7 @@ class Message
 
   #how each message should be represented in xml
   def to_xml
-    "\t<sms protocol=\"0\" address=\"#{number}\" date=\"#{date}000\" type=\"1\" subject=\"null\" body=\"#{CGI::escapeHTML("#{text}")}\" toa=\"0\" sc_toa=\"0\" service_center=\"null\" read=\"1\" status=\"-1\" locked=\"0\" contact_name=\"null\" />"
+    "\t<sms protocol=\"0\" address=\"#{number}\" date=\"#{date}000\" date_sent=\"#{date}000\" type=\"1\" subject=\"null\" body=\"#{CGI::escapeHTML("#{text}")}\" toa=\"null\" sc_toa=\"null\" service_center=\"null\" read=\"1\" status=\"-1\" locked=\"0\" contact_name=\"null\" />"
   end
 end
 
@@ -73,7 +73,9 @@ def extract_from_db(dbfilepath)
   db.execute(sql) do |row|
     num = row['sender']
     txt = row['text']
-    dt = row['date']
+
+    #convert MAC Absolute Time to unix epoch time.
+    dt = row['date'].to_i + 978307200
 
     collection.push(Message.new(num, txt, dt))
   end
@@ -103,19 +105,13 @@ end
 #DO THE WORK!
 #
 puts("\nsms2droid")
-puts("path to sms.db:")
-#file_to_convert = gets.chomp
-file_to_convert = '/Users/handsomecheung/3d0d7e5fb2ce288813306e4d4636395e047a3d28'
+puts("pls enter the bsolute path of sms.db:")
+file_to_convert = gets.chomp
 
 if File.exists?(file_to_convert)
-  #begin
   messages = extract_from_db(file_to_convert)
   write_to_file(messages)
   done(messages.length)
-  #rescue Exception => e
-    ##exception e
-    #puts e
-  #end
 else
   file_not_found(file_to_convert)
 end
