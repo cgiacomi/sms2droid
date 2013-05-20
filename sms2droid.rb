@@ -16,6 +16,7 @@
 #  limitations under the License.
 #
 
+#require 'rubygems'
 require 'sqlite3'
 require 'cgi'
 
@@ -23,18 +24,17 @@ require 'cgi'
 #model class representing a sent or received sms
 #
 class Message
-  attr_accessor :number, :text, :date, :flags
+  attr_accessor :number, :text, :date
 
-  def initialize(num, txt, dt, flgs)
+  def initialize(num, txt, dt)
     @number = num
     @text = txt
     @date = dt
-    @flags = flgs
   end
 
   #how each message should be represented in xml
   def to_xml
-    "\t<sms protocol=\"0\" address=\"#{number}\" date=\"#{date}000\" type=\"#{flags-1}\" subject=\"null\" body=\"#{CGI::escapeHTML("#{text}")}\" toa=\"0\" sc_toa=\"0\" service_center=\"null\" read=\"1\" status=\"-1\" locked=\"0\" contact_name=\"null\" />"
+    "\t<sms protocol=\"0\" address=\"#{number}\" date=\"#{date}000\" type=\"1\" subject=\"null\" body=\"#{CGI::escapeHTML("#{text}")}\" toa=\"0\" sc_toa=\"0\" service_center=\"null\" read=\"1\" status=\"-1\" locked=\"0\" contact_name=\"null\" />"
   end
 end
 
@@ -42,37 +42,40 @@ end
 #write the messages to the xml file
 #
 def write_to_file(msgs)
-  File.open('sms.xml', 'w') do |file| 
+  File.open('sms.xml', 'w') do |file|
 
     #add the header to the xml file
     file.puts "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>"
     file.puts "<smses count=\"#{msgs.length}\">"
 
-    #iterate over the messages and write the content   
+    #iterate over the messages and write the content
     msgs.each do |msg|
       file.puts msg.to_xml
     end
 
     #add the footer
     file.puts "</smses>"
-  end  
+  end
 end
 
 #
 #extracts the values from the DB
 #
-def extract_from_db(dbfilepath)	
+def extract_from_db(dbfilepath)
   collection = Array.new
 
   db = SQLite3::Database.new("#{dbfilepath}")
   db.results_as_hash = true #otherwise you cannot referr to the columns via the column name!
-  db.execute( "select * from message" ) do |row|
-    num = row['address']
+  sql = """
+   SELECT message.*, handle.id AS sender
+   FROM message INNER JOIN handle ON message.handle_id = handle.ROWID
+  """
+  db.execute(sql) do |row|
+    num = row['sender']
     txt = row['text']
     dt = row['date']
-    flgs = row['flags'] 
 
-    collection.push(Message.new(num, txt, dt, flgs))
+    collection.push(Message.new(num, txt, dt))
   end
 
   return collection
@@ -101,16 +104,18 @@ end
 #
 puts("\nsms2droid")
 puts("path to sms.db:")
-file_to_convert = gets.chomp
+#file_to_convert = gets.chomp
+file_to_convert = '/Users/handsomecheung/3d0d7e5fb2ce288813306e4d4636395e047a3d28'
 
 if File.exists?(file_to_convert)
-  begin
-    messages = extract_from_db(file_to_convert)
-    write_to_file(messages)
-    done(messages.length)
-  rescue Exception => e
-    exception e
-  end    
+  #begin
+  messages = extract_from_db(file_to_convert)
+  write_to_file(messages)
+  done(messages.length)
+  #rescue Exception => e
+    ##exception e
+    #puts e
+  #end
 else
   file_not_found(file_to_convert)
 end
